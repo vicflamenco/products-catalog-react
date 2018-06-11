@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import { Link,  BrowserRouter as Router, Route } from 'react-router-dom';
-import { Grid, Row, Col, Image, Button } from 'react-bootstrap';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Grid, Row, Col } from 'react-bootstrap';
 import Home from './components/Home' ;
 import About from './components/About';
 import News from './components/News';
 import Products from './components/Products';
-import Navbar from './components/CustomNavbar';
 import StackNavbar from './components/StackNavbar';
 import Header from './components/Header';
 import Footer from './components/Footer';

@@ -1,6 +1,5 @@
-import React, { Component } from 'react'
-import { Jumbotron, Grid, Row, Col, Image, Button } from 'react-bootstrap';
-import { Link,  BrowserRouter as Router, } from 'react-router-dom';
+import React from 'react'
+import { Jumbotron, Grid, Row, Col, Image } from 'react-bootstrap';
 import './Home.css';
 
 const Home = (props) => {
@@ -12,11 +11,6 @@ const Home = (props) => {
 				In this world, everything can be happy. Didn't you know you had that much power? 
 				You can move mountains. You can do anything. Just go out and talk to a tree. 
 				Make friends with it.</p>
-				<Router>
-					<Link to="/about">
-						<Button bsStyle="primary" >Learn More</Button>
-					</Link>
-				</Router>
 			</Jumbotron>
 		</Row>
 		<Row className="show-grid">

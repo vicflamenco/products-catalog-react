@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Grid, Row, Col, Button} from 'react-bootstrap';
+import { Grid, Row, Col } from 'react-bootstrap';
 import Request  from 'superagent';
-import _ from 'lodash';
+import Table from './Table';
 import './Products.css';
 
 export default class Products extends Component {
@@ -16,7 +16,8 @@ export default class Products extends Component {
     this.getData();
   }
   getData = () => {
-    Request.get('./data/products.json').then((response) => {
+    Request.get('./data/products.json')
+    .then((response) => {
       this.setState({
         products: response.body
       });
@@ -28,18 +29,7 @@ export default class Products extends Component {
     });
   }
   render() {
-    var productList = this.state.products;    
-    var productItems = _.map(this.state.products.filter(
-      (product) => {
-        return product.title.toLowerCase().indexOf(this.state.search) !== -1;
-      }
-    ), (product) => {
-      return <tr key={product.id}>
-        <td>{product.title}</td>
-        <td>{product.price}</td>
-        <td>{product.inventory}</td>
-      </tr>
-    });
+
     return (
       <div>
         <Grid>
@@ -47,16 +37,8 @@ export default class Products extends Component {
             <Col>
               <h1>PRODUCTS</h1>
               <input type="text" placeholder="Search products" onChange={this.updateSearch.bind(this)}/>
-              <table className="table table-bordered">
-                <thead>
-                  <tr>
-                    <th>Product</th>
-                    <th>Price</th>
-                    <th>Inventory</th>
-                  </tr>
-                </thead>
-                <tbody>{productItems}</tbody>
-              </table>
+              <Table productList = {this.state.products}
+              search = {this.state.search}/>
             </Col>
           </Row>
         </Grid>
